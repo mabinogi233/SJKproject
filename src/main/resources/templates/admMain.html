@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工列表</title>
+    <style>
+        table{border-collapse:collapse;}
+        table,th, td{border: 1px solid black;padding: 5px;text-align: center;}
+        div{color: red}
+    </style>
+</head>
+<body>
+<br/>
+<br/>
+<div th:if="${flag} == 1">
+    <label>操作成功</label>
+</div>
+<div th:if="${flag} == 2">
+    <label>操作失败</label>
+</div>
+<br/>
+<br/>
+<a href="/Adm/addPerson">新增员工</a>
+<br/>
+<br/>
+<a href="/Adm/listSection">部门管理</a>
+<br/>
+<br/>
+<table>
+    <thead>
+    <th width="20%">员工ID</th>
+    <th width="20%">所属部门ID</th>
+    <th width="20%">姓名</th>
+    <th width="20%">年龄</th>
+    <th width="20%">性别</th>
+    <th width="20%">身份证号</th>
+    <th width="20%">职位</th>
+    <th width="20%">操作</th>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="books" type="java.util.List"*/-->
+    <tr th:each="p : ${person}">
+        <td th:text="${p.Yid}"></td>
+        <td th:text="${p.Bid}"></td>
+        <td th:text="${p.YName}"></td>
+        <td th:text="${p.Age}"></td>
+        <td th:text="${p.Sex}"></td>
+        <td th:text="${p.IDCardNumber}"></td>
+        <td th:text="${p.Post}"></td>
+        <td>
+            <a th:href="@{/Adm/updatePerson(Yid=${p.Yid})}">修改基本信息</a> &nbsp;&nbsp;
+            <a th:href="@{/Adm/attendanceOP(Yid=${p.Yid})}">考勤管理</a>
+            <a th:href="@{/Adm/salaryOp(Yid=${p.Yid})}">薪资管理</a> &nbsp;&nbsp;
+            <a th:href="@{/Adm/updateAccount(Yid=${p.Yid})}">账号管理</a>
+            <a th:href="@{/Adm/deletePerson(Yid=${p.Yid})}">删除该员工</a> &nbsp;&nbsp;
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

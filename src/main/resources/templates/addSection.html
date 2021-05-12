@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改部门信息</title>
+</head>
+<body>
+<br/>
+<br/>
+<a href="/Adm/list">返回</a>
+<br/>
+<br/>
+<form th:action="@{/Adm/addSectionPost}" method="post">
+    <div>
+        <label>部门ID</label>
+        <input type="text" name="Bid" th:readonly="true" th:field="${section.Bid}" />
+    </div>
+    <div>
+        <label>部门名称</label>
+        <input type="text" name="BName" th:field="${section.BName}" />
+    </div>
+    <div>
+        <label>部门位置</label>
+        <input type="text" name="Location" th:field="${section.Location}" />
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加薪资信息</title>
+</head>
+<body>
+<br/>
+<br/>
+<a href="/Adm/list">返回</a>
+<br/>
+<br/>
+<form th:action="@{/Adm/addSalaryPost}" method="post">
+    <div>
+        <label>员工ID</label>
+        <input th:readonly="true" type="text" name="Yid" th:field="${salary.Yid}" />
+    </div>
+    <div>
+        <label>薪资发放日期</label>
+        <input type="text" name="SDate" th:field="${salary.SDate}" />
+    </div>
+    <div>
+        <label>基本工资</label>
+        <input type="text" name="BasePay" th:field="${salary.BasePay}" />
+    </div>
+    <div>
+        <label>奖励工资</label>
+        <input type="text" name="Reward" th:field="${salary.Reward}" />
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>
+</body>
+</html>

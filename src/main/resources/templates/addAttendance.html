@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加考勤信息</title>
+</head>
+<body>
+<br/>
+<br/>
+<a href="/Adm/list">返回</a>
+<br/>
+<br/>
+<form th:action="@{/Adm/addAttendancePost}" method="post">
+    <div>
+        <label>员工ID</label>
+        <input th:readonly="true" type="text" name="Yid" th:field="${attendance.Yid}" />
+    </div>
+    <div>
+        <label>考勤日期</label>
+        <input type="text" name="ADate" th:field="${attendance.ADate}" />
+    </div>
+    <div>
+        <label>考勤情况</label>
+        <input type="text" name="Information" th:field="${attendance.Information}" />
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>
+</body>
+</html>

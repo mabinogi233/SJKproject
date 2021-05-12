@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息</title>
+    <style>
+        table{border-collapse:collapse;}
+        table,th, td{border: 1px solid black;padding: 5px;text-align: center;}
+        div{color: red}
+    </style>
+</head>
+<body>
+<br/>
+<br/>
+<div th:if="${flag} == 1">
+    <label>操作成功</label>
+</div>
+<div th:if="${flag} == 2">
+    <label>操作失败</label>
+</div>
+<br/>
+<br/>
+<a th:href="@{/user/selectSalary(Yid=${person.Yid})}">薪资查询</a>
+<br/>
+<br/>
+<a th:href="@{/user/selectAttendance(Yid=${person.Yid})}">考勤查询</a>
+<br/>
+<br/>
+<a th:href="@{/user/updatePerson(Yid=${person.Yid})}">修改基本信息</a>
+<br/>
+<br/>
+<a th:href="@{/user/updateAccount(Yid=${person.Yid})}">修改账户</a>
+<br/>
+<br/>
+<div>
+    <label>员工ID</label>
+    <input type="text" name="Yid" th:readonly="true" th:field="${person.Yid}" />
+</div>
+<div>
+    <label>所属部门ID</label>
+    <input th:readonly="true" type="text" name="Bid" th:field="${section.Bid}" />
+</div>
+<div>
+    <label>所属部门名称</label>
+    <input th:readonly="true" type="text" name="BName" th:field="${section.BName}" />
+</div>
+<div>
+    <label>所属部门位置</label>
+    <input th:readonly="true" type="text" name="Location" th:field="${section.Location}" />
+</div>
+<div>
+    <label>姓名</label>
+    <input th:readonly="true" type="text" name="YName" th:field="${person.YName}" />
+</div>
+<div>
+    <label>年龄</label>
+    <input th:readonly="true" type="text" name="Age" th:field="${person.Age}" />
+</div>
+<div>
+    <label>性别</label>
+    <input th:readonly="true" type="text" name="Sex" th:field="${person.Sex}" />
+</div>
+<div>
+    <label>身份证号</label>
+    <input th:readonly="true" type="text" name="IDCardNumber" th:field="${person.IDCardNumber}" />
+</div>
+<div>
+    <label>职位</label>
+    <input th:readonly="true" type="text" name="Post" th:field="${person.Post}" />
+</div>
+<div>
+    <label>系统账号</label>
+    <input th:readonly="true" type="text" name="UserId" th:field="${account.UserId}" />
+</div>
+<div>
+    <label>系统密码</label>
+    <input th:readonly="true" type="text" name="Password" th:field="${account.Password}" />
+</div>
+<div>
+    <label>权限</label>
+    <input th:readonly="true" type="text" name="Jurisdiction" th:field="${account.Jurisdiction}" />
+</div>
+</body>
+</html>

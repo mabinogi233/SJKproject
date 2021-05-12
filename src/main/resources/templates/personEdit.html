@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改员工基本信息</title>
+</head>
+<body>
+<br/>
+<br/>
+<a href="/Adm/list">返回</a>
+<br/>
+<br/>
+<form th:action="@{/Adm/updatePersonPost}" method="post">
+
+    <div>
+        <label>员工ID</label>
+        <input type="text" name="Yid" th:readonly="true" th:field="${person.Yid}" />
+    </div>
+    <div>
+        <label>所属部门ID</label>
+        <input type="text" name="Bid" th:field="${person.Bid}" />
+    </div>
+    <div>
+        <label>姓名</label>
+        <input type="text" name="YName" th:field="${person.YName}" />
+    </div>
+    <div>
+        <label>年龄</label>
+        <input type="text" name="Age" th:field="${person.Age}" />
+    </div>
+    <div>
+        <label>性别</label>
+        <input type="text" name="Sex" th:field="${person.Sex}" />
+    </div>
+    <div>
+        <label>身份证号</label>
+        <input type="text" name="IDCardNumber" th:field="${person.IDCardNumber}" />
+    </div>
+    <div>
+        <label>职位</label>
+        <input type="text" name="Post" th:field="${person.Post}" />
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>
+</body>
+</html>

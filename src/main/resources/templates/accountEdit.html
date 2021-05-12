@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改员工系统账号信息</title>
+</head>
+<body>
+<br/>
+<br/>
+<a href="/Adm/list">返回</a>
+<br/>
+<br/>
+<form th:action="@{/Adm/updateAccountPost}" method="post">
+
+    <div>
+        <label>员工ID</label>
+        <input th:readonly="true" type="text" name="Yid" th:field="${account.Yid}" />
+    </div>
+    <div>
+        <label>用户名</label>
+        <input type="text" name="UserId" th:field="${account.UserId}" />
+    </div>
+    <div>
+        <label>密码</label>
+        <input type="text" name="Password" th:field="${account.Password}" />
+    </div>
+    <div>
+        <label>职位</label>
+        <input type="text" name="Jurisdiction" th:field="${account.Jurisdiction}" />
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>
+</body>
+</html>

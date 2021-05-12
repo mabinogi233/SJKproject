@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>考勤管理</title>
+    <style>
+        table{border-collapse:collapse;}
+        table,th, td{border: 1px solid black;padding: 5px;text-align: center;}
+    </style>
+</head>
+<body>
+<br/>
+<br/>
+<a th:href="@{/Adm/addAttendance(Yid=${YID})}">新增考勤记录</a>
+<br/>
+<br/>
+<a href="/Adm/list">返回</a>
+<br/>
+<br/>
+<table>
+    <thead>
+    <th width="20%">员工ID</th>
+    <th width="20%">考勤日期</th>
+    <th width="20%">考勤情况</th>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="books" type="java.util.List"*/-->
+    <tr th:each="a : ${attendances}">
+        <td th:text="${a.Yid}"></td>
+        <td th:text="${a.ADate}"></td>
+        <td th:text="${a.Information}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
